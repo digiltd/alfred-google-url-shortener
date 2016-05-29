@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.samturner.alfred.google-url-shortener</string>
+	<key>connections</key>
+	<dict>
+		<key>B0D54A7E-C65C-464C-ACC1-8B2E3666F03A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>625AA8BE-C1F7-484A-AFD5-7661C9F06D7F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F9F4DC34-38EC-41AB-8876-B6E3497E50CE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D553A78E-4C71-49BB-9787-B60A366C68CE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B0D54A7E-C65C-464C-ACC1-8B2E3666F03A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Sam Turner</string>
+	<key>description</key>
+	<string>Shortens a long URL using goo.gl</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Goo.gl URL Shortener</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>118</integer>
+				<key>script</key>
+				<string>query=$1
+
+longURL=$query
+
+API_key=$googleAPI
+
+
+
+GoogleURL='https://www.googleapis.com/urlshortener/v1/url?key='$API_key
+curl -f -s $GoogleURL -H 'Content-Type: application/json' -d "{'longUrl': '$longURL'}" | awk '/id/ { printf $2}' | awk -F\" '{ printf $2 }'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B0D54A7E-C65C-464C-ACC1-8B2E3666F03A</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>goo.gl</string>
+				<key>subtext</key>
+				<string>Create a short URL with goo.gl</string>
+				<key>text</key>
+				<string>Shorten URL</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>D553A78E-4C71-49BB-9787-B60A366C68CE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string></string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>625AA8BE-C1F7-484A-AFD5-7661C9F06D7F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>URL copied to clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>F9F4DC34-38EC-41AB-8876-B6E3497E50CE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Google URL Shortener
+
+An Alfred Extension that uses Google's URL Shortener API to shorten long URLs.
+
+Built upon the work of 
+
+Justin Kopepasah
+https://github.com/kopepasah/alfred-google-url-shortener
+
+and
+
+Fahad Alduraibi
+https://github.com/fduraibi/Google-URL-Shortener
+
+You need to provide your own Google API key</string>
+	<key>uidata</key>
+	<dict>
+		<key>625AA8BE-C1F7-484A-AFD5-7661C9F06D7F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>570</integer>
+			<key>ypos</key>
+			<integer>90</integer>
+		</dict>
+		<key>B0D54A7E-C65C-464C-ACC1-8B2E3666F03A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>90</integer>
+		</dict>
+		<key>D553A78E-4C71-49BB-9787-B60A366C68CE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>90</integer>
+		</dict>
+		<key>F9F4DC34-38EC-41AB-8876-B6E3497E50CE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>570</integer>
+			<key>ypos</key>
+			<integer>280</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>googleAPI</key>
+		<string>AIzaSyD7ejtWQ4feSzK_6GNCpDzT5xCUUdGM1Uo</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>googleAPI</string>
+	</array>
+	<key>version</key>
+	<string>0.1</string>
+	<key>webaddress</key>
+	<string>samturner.io</string>
+</dict>
+</plist>
