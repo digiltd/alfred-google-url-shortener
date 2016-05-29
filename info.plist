@@ -50,7 +50,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Goo.gl URL Shortener</string>
+	<string>Google URL Shortener</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -195,14 +195,10 @@ You need to provide your own Google API key</string>
 	<key>variables</key>
 	<dict>
 		<key>googleAPI</key>
-		<string>AIzaSyD7ejtWQ4feSzK_6GNCpDzT5xCUUdGM1Uo</string>
+		<string>AIzaSyAELFyekl4JpvUjqKOfbXXuzZFPB5S6uw8</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array>
-		<string>googleAPI</string>
-	</array>
 	<key>version</key>
-	<string>0.1</string>
+	<string>1.0</string>
 	<key>webaddress</key>
 	<string>samturner.io</string>
 </dict>
